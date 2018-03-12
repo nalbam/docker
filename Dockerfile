@@ -11,8 +11,7 @@ RUN yum update -y && \
     yum install -y epel-release && \
     yum install -y git zip curl wget python-pip httpd
 
-EXPOSE 80
+EXPOSE 22 80
 
-VOLUME /work
-
-WORKDIR /work
+VOLUME ["/data", "/work"]
+ENTRYPOINT ["/usr/bin/bash"]
