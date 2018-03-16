@@ -11,7 +11,11 @@ RUN yum update -y && \
     yum install -y epel-release && \
     yum install -y git zip curl wget python-pip httpd
 
-EXPOSE 22 80
+CMD ["echo", "OK", "/usr/local/apache2/htdocs/index.html"]
+
+EXPOSE 22
+EXPOSE 80
 
 VOLUME ["/data", "/work"]
-ENTRYPOINT ["/usr/bin/bash"]
+
+ENTRYPOINT ["httpd-foreground"]
